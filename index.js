@@ -21,7 +21,7 @@ var conexion    =    mysql.createPool({
     database          :   'nerachatsql',
     debug             :   false,
 	ssl: {
-        ca : fs.readFileSync(__dirname + '/mysql-ca.crt')
+        rejectUnauthorized: false
     }
 });
 
