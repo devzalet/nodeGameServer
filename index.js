@@ -20,7 +20,11 @@ var conexion    =    mysql.createPool({
     password          :   'pscale_pw_T_XnGKFGhHI3va9bEfMB9UX2swBcGTrfgMS4AYeJeKo',
     database          :   'nerachatsql',
     debug             :   false,
-	ssl               :   true
+	ssl: {
+        ca: fs.readFileSync(__dirname + '/certs/ca.pem'),
+        key: fs.readFileSync(__dirname + '/certs/client-key.pem'),
+        cert: fs.readFileSync(__dirname + '/certs/client-cert.pem')
+    }
 });
 
 
