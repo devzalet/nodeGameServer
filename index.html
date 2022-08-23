@@ -1,0 +1,44 @@
+< !DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Chat RealTime Socket.IO</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>CHAT RealTime con Socket.IO</h2>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="txtArea">Mensajes</label>
+                <textarea id="txtArea" cols="30" rows="20" class="form-control" readonly></textarea>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Escribe algo." id="mensaje_usuario"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" id="nuevo_comentario" type="button">Enviar!</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+ <script>
+    $(document).ready(function(){
+          var socket = io();
+          $("#nuevo_comentario").click(function(){
+            socket.emit('nuevo', $("#mensaje_usuario").val()); //Enviamos nuestro mensaje
+            $("#mensaje_usuario").val("");
+          });
+          socket.on('refrescar',function(msg){
+            $("#txtArea").append(msg + '\n'); //Recibimos los nuevos mensajes
+          });
+    });
+    </script>
+</body>
+</html>
