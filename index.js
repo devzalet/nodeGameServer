@@ -4,14 +4,25 @@ var io = require('socket.io')(server);
 var mysql   =     require("mysql"); //agregado
 
 // Conectando a mysql
+// var conexion    =    mysql.createPool({
+//     connectionLimit   :   100,
+//     host              :   'localhost',
+//     user              :   'root',
+//     password          :   '',
+//     database          :   'nerachat',
+//     debug             :   false
+// });
+
 var conexion    =    mysql.createPool({
     connectionLimit   :   100,
-    host              :   'localhost',
-    user              :   'root',
-    password          :   '',
-    database          :   'nerachat',
-    debug             :   false
+    host              :   'ku1p1sq5j8u6.eu-west-2.psdb.cloud',
+    user              :   'lioru1uxhmjj',
+    password          :   'pscale_pw_T_XnGKFGhHI3va9bEfMB9UX2swBcGTrfgMS4AYeJeKo',
+    database          :   'nerachatsql',
+    debug             :   false,
+	ssl               :   true
 });
+
 
 //server.listen(3000);
 server.listen(process.env.PORT || 5000);
@@ -22,7 +33,7 @@ var playerSpawnPoints = [];
 var clients = [];
 
 app.get('/', function(req, res) {
-	res.send('hey you got back get "/"');
+	res.send('levantando chat para neraverse "/"');
 });
 
 var addComentario = function (data,callback) {
