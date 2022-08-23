@@ -1,8 +1,8 @@
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-//var mysql   =     require("mysql"); //agregado
-var mysql   =     require("mysql2"); //modificado
+var mysql   =     require("mysql"); //agregado
+//var mysql   =     require("mysql2"); //modificado
 
 // Conectando a mysql
 // var conexion    =    mysql.createPool({
