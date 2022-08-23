@@ -1,7 +1,8 @@
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var mysql   =     require("mysql"); //agregado
+//var mysql   =     require("mysql"); //agregado
+var mysql   =     require("mysql2"); //modificado
 
 // Conectando a mysql
 // var conexion    =    mysql.createPool({
@@ -16,8 +17,8 @@ var mysql   =     require("mysql"); //agregado
 var conexion    =    mysql.createPool({
     connectionLimit   :   100,
     host              :   'ku1p1sq5j8u6.eu-west-2.psdb.cloud',
-    user              :   'lioru1uxhmjj',
-    password          :   'pscale_pw_T_XnGKFGhHI3va9bEfMB9UX2swBcGTrfgMS4AYeJeKo',
+    user              :   'ba6xqa4klc7k',
+    password          :   'pscale_pw_BIWfTZELzh-P6_iBSm3mhFjyc5znwDrl-_Oq6hlFeYs',
     database          :   'nerachatsql',
     debug             :   false,
 	ssl: {
