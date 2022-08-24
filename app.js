@@ -39,13 +39,14 @@ io.on('connection', function(socket) {
   
   socket.on('login', function(logdata){
     console.log("message from user "+ JSON.stringify(logdata));
-    conexion.query("SELECT * FROM `Playernv` WHERE `playfabId`='"+logdata.playfabId+'' , function(err, result, fields) {
+    conexion.query("SELECT * FROM `Playernv` WHERE `playfabId`='+logdata.playfabId+'" , function(err, result, fields) {
         if (err){
             //socket.emit('login',logdata.playfabId);
-            io.emit('chat', {
-                id: "userId",
-                msg: logdata.playfabId
-              });
+            // io.emit('chat', {
+            //     id: "userId",
+            //     msg: logdata.playfabId
+            //   });
+            console.log(err);
             throw err;  
         } else{
             console.log(result);
