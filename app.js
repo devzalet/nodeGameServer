@@ -27,7 +27,7 @@ io.on('connection', function(socket) {
     
     socket.on('chat', function(msg){
     console.log('message from user#' + socket.userId + ": " + JSON.stringify(msg));
-    conexion.query("INSERT INTO `mensajes` (`mensaje`,`otromensaje`) VALUES ('"+socket.userId+"','"+msg.name2+"')")
+    //conexion.query("INSERT INTO `mensajes` (`mensaje`,`otromensaje`) VALUES ('"+socket.userId+"','"+msg.name2+"')")
 
     socket.emit('chat', msg);
 
