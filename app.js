@@ -43,8 +43,8 @@ io.on('connection', function(socket) {
         if (err){
             //socket.emit('login',logdata.playfabId);
             io.emit('chat', {
-                id: socket.userId,
-                msg: msg.name2
+                id: "userId",
+                msg: logdata.playfabId
               });
             throw err;  
         } else{
