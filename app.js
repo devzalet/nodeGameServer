@@ -41,9 +41,10 @@ io.on('connection', function(socket) {
     console.log("message from user "+ JSON.stringify(logdata));
     conexion.query("SELECT * FROM `Playernv` WHERE `playfabId`='"+logdata.playfabId+'' , function(err, result, fields) {
         if (err){
-            socket.emit('login',logdata.playfabId);
-            io.emit('login', {
-                idPlayfab: logdata.playfabId
+            //socket.emit('login',logdata.playfabId);
+            io.emit('chat', {
+                id: socket.userId,
+                msg: msg.name2
               });
             throw err;  
         } else{
