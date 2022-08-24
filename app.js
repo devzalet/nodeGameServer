@@ -49,7 +49,7 @@ io.on('connection', function(socket) {
             console.log(err);
             throw err;  
         } else{
-            socket.emit('login',result[0]);
+            //socket.emit('login',result[0]);
             socket.emit('display',result[0].displayName);
             console.log(result[0].displayName);
         }
