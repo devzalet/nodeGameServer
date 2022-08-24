@@ -35,7 +35,17 @@ io.on('connection', function(socket) {
       id: socket.userId,
       msg: msg.name2
     });
-
+  });
+  
+  socket.on('login', function(logdata){
+    conexion.query("SELECT * FROM `Playernv` WHERE `playfabId`='"+logdata.playfabId+'' , function(err, result, fields) {
+        if (err){
+            socket.emit('login',"no existe !!!");
+            throw err;  
+        } else{
+            console.log(result);
+        }
+      });
   });
 
 });
