@@ -16,14 +16,14 @@ var mysql   =     require("mysql"); //agregado
 
 var conexion    =    mysql.createPool({
     connectionLimit   :   100,
-    host              :   'ku1p1sq5j8u6.eu-west-2.psdb.cloud',
-    user              :   'ba6xqa4klc7k',
-    password          :   'pscale_pw_BIWfTZELzh-P6_iBSm3mhFjyc5znwDrl-_Oq6hlFeYs',
-    database          :   'nerachatsql',
-    debug             :   false,
-	ssl: {
-        rejectUnauthorized: false
-    }
+	database: "nerachatsql",
+	user: "21zqfflcphu3",
+	host: "ku1p1sq5j8u6.eu-west-2.psdb.cloud",
+	password: "pscale_pw_QypBkfdCIvpOzRBEXZxXc4rDv6XPTSPUz8wSDd_g7yc",
+// debug             :   false,
+ssl: {
+	rejectUnauthorized: false
+}
 });
 
 
