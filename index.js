@@ -20,8 +20,8 @@ var conexion    =    mysql.createPool({
 	user: "21zqfflcphu3",
 	host: "ku1p1sq5j8u6.eu-west-2.psdb.cloud",
 	password: "pscale_pw_QypBkfdCIvpOzRBEXZxXc4rDv6XPTSPUz8wSDd_g7yc",
-// debug             :   false,
-ssl: {
+	debug             :   false,
+	ssl: {
 	rejectUnauthorized: false
 }
 });
