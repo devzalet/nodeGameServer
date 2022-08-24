@@ -41,7 +41,7 @@ io.on('connection', function(socket) {
     console.log("message from user "+ JSON.stringify(logdata));
     conexion.query("SELECT * FROM `Playernv` WHERE `playfabId`='"+logdata.playfabId+'' , function(err, result, fields) {
         if (err){
-            socket.emit('login',"no existe !!!");
+            socket.emit('login',logdata.playfabId);
             io.emit('login', {
                 idPlayfab: logdata.playfabId
               });
