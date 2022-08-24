@@ -31,11 +31,11 @@ io.on('connection', function(socket) {
 
     socket.emit('chat', msg);
 
-    // io.emit('chat', {
-    //   id: socket.userId,
-    //   msg: msg.name2
-    // });
-    
+    io.emit('chat', {
+      id: socket.userId,
+      msg: msg.name2
+    });
+
   });
 
 });
